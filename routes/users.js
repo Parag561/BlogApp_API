@@ -16,5 +16,4 @@ router.delete("/:id", deleteUser);
 //to get a Specific USer
 router.get("/:id", getUser);
 
-
 module.exports = router;

@@ -22,7 +22,7 @@ const login = async (req, res) => {
     const user = await User.findOne({ name: req.body.name });
     !user && res.send({ result: "Wrong credentials" });
 
-    const validate =  await bcrypt.compare(req.body.password, user.password);
+    const validate = await bcrypt.compare(req.body.password, user.password);
     !validate && res.send({ result: "Wrong credentials" });
     const { password, ...others } = user._doc;
 

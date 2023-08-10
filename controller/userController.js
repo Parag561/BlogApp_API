@@ -50,5 +50,4 @@ const getUser = async (req, res) => {
   }
 };
 
-
-module.exports = { UpdateUser, deleteUser, getUser};
+module.exports = { UpdateUser, deleteUser, getUser };
