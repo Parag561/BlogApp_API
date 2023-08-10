@@ -19,16 +19,16 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const user = await User.findOne({ name: req.body.name })
+    const user = await User.findOne({ name: req.body.name });
     !user && res.send({ result: "Wrong credentials" });
 
-    const validate = await bcrypt.compare(req.body.password, user.password);
+    const validate =  await bcrypt.compare(req.body.password, user.password);
     !validate && res.send({ result: "Wrong credentials" });
     const { password, ...others } = user._doc;
 
     res.status(200).send(others);
   } catch (err) {
-    res.status(500).send(err);
+    res.status(500).json(err);
   }
 };
 
